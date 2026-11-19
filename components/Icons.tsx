@@ -23,3 +23,6 @@ export const Sparkle = ({ className }: P) => (
 export const Arrow = ({ className }: P) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden><path d="M4 12h15m-5-5 5 5-5 5"/></svg>
 );
+export const Heart = ({ className }: P) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 21s-7.5-4.6-9.7-9.3C.8 8.4 2.7 4.5 6.4 4.1c2.1-.2 4 .9 5.6 2.9 1.6-2 3.5-3.1 5.6-2.9 3.7.4 5.6 4.3 4.1 7.6C19.5 16.4 12 21 12 21Z"/></svg>
+);

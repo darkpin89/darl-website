@@ -2,8 +2,8 @@
 
 Next.js one-page site. Semua kandungan boleh ubah dalam 2 fail:
 
-- `data/site.ts` — link Spotify/YouTube/Instagram/TikTok, email booking, single terbaru, teks About, link mailing list
-- `data/shows.json` — senarai show (tarikh `YYYY-MM-DD`). Show yang dah lepas hilang sendiri.
+- `data/site.ts` — link Spotify/YouTube/Instagram/TikTok, album Spotify, video YouTube, link donation Sociabuzz, email booking, teks About, link mailing list
+
 
 Gambar dalam `public/images/` (hero.jpg = gambar utama, og.jpg = preview bila link dikongsi di WhatsApp/IG).
 

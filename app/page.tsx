@@ -1,12 +1,9 @@
-export const revalidate = 86400; // semak tarikh show setiap hari
-
 import Image from "next/image";
 import { site } from "@/data/site";
-import shows from "@/data/shows.json";
 import MailingList from "@/components/MailingList";
-import { Apple, Arrow, Instagram, Play, Sparkle, Spotify, TikTok, YouTube } from "@/components/Icons";
+import { Apple, Arrow, Heart, Instagram, Play, Sparkle, Spotify, TikTok, YouTube } from "@/components/Icons";
 
-const nav = ["Home", "Music", "About", "Shows", "Gallery", "Contact"];
+const nav = ["Home", "Music", "Video", "About", "Support", "Gallery"];
 const gallery = [
   { src: "/images/vocal.jpg", alt: "DARL vocalist" },
   { src: "/images/guitar.jpg", alt: "DARL guitarist" },
@@ -29,10 +26,6 @@ function Socials({ className = "" }: { className?: string }) {
 }
 
 export default function Home() {
-  const upcoming = shows
-    .filter((s) => new Date(s.date) >= new Date(new Date().toDateString()))
-    .sort((a, b) => a.date.localeCompare(b.date));
-
   return (
     <>
       <header className="nav">
@@ -55,7 +48,7 @@ export default function Home() {
             <p className="hero-tagline">{site.tagline.map((l) => <span key={l}>{l}</span>)}</p>
             <div className="hero-ctas">
               <a href="#music" className="btn btn-pink"><Play className="i" /> Listen to music</a>
-              <a href={site.release.watchUrl} className="btn btn-ghost"><Play className="i" /> Watch video</a>
+              <a href={site.video.url} target="_blank" rel="noopener" className="btn btn-ghost"><Play className="i" /> Watch video</a>
             </div>
           </div>
           <blockquote className="hero-quote">
@@ -67,56 +60,39 @@ export default function Home() {
         <div className="cards">
           <section id="music" className="card release">
             <h2 className="label">New release</h2>
-            <div className="release-body">
-              <Image src={site.release.cover} alt={`${site.release.title} cover`} width={320} height={320} className="cover" />
-              <div>
-                <h3 className="release-title">{site.release.title}</h3>
-                <p className="muted">{site.release.type}<br />Out now</p>
-              </div>
-            </div>
-            {site.release.spotifyEmbed ? (
-              <iframe className="spotify" src={site.release.spotifyEmbed} height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify player" />
-            ) : null}
+            <iframe className="spotify" src={site.release.spotifyEmbed} height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="DARL on Spotify" />
             <div className="platforms">
-              <a href={site.socials.spotify}><Spotify className="i" /> Spotify</a>
-              <a href={site.socials.youtube}><YouTube className="i" /> YouTube</a>
+              <a href={site.release.spotifyUrl} target="_blank" rel="noopener"><Spotify className="i" /> Spotify</a>
+              <a href={site.video.url} target="_blank" rel="noopener"><YouTube className="i" /> YouTube</a>
               <a href={site.socials.appleMusic}><Apple className="i" /> Apple Music</a>
             </div>
           </section>
 
-          <section id="shows" className="card shows">
-            <h2 className="label">Upcoming shows</h2>
-            {upcoming.length === 0 ? (
-              <p className="muted">No shows announced yet. Follow us for updates.</p>
-            ) : (
-              <ul>
-                {upcoming.slice(0, 3).map((s) => {
-                  const d = new Date(s.date + "T00:00:00");
-                  return (
-                    <li key={s.date + s.venue}>
-                      <div className="date">
-                        <span className="day">{String(d.getDate()).padStart(2, "0")}</span>
-                        <span className="mon">{d.toLocaleString("en", { month: "short" })}</span>
-                      </div>
-                      <div className="venue">
-                        <strong>{s.venue}</strong>
-                        <span className="muted">{s.city}</span>
-                      </div>
-                      <a href={s.tickets} className="btn btn-outline sm">Tickets</a>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-            <a href="#shows" className="link">View all shows <Arrow className="i" /></a>
+          <section id="video" className="card video">
+            <h2 className="label">Music video</h2>
+            <div className="yt">
+              <iframe src={`https://www.youtube-nocookie.com/embed/${site.video.youtubeId}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="DARL music video" />
+            </div>
+            <a href={site.video.url} target="_blank" rel="noopener" className="link">Watch on YouTube <Arrow className="i" /></a>
           </section>
 
           <section id="about" className="card about">
             <h2 className="label">About DARL</h2>
             <p>{site.about}</p>
-            <a href="#gallery" className="btn btn-outline-pink sm">Read our story</a>
+            <a href="#support" className="btn btn-outline-pink sm">Support us</a>
           </section>
         </div>
+
+        <section id="support" className="support">
+          <div className="support-inner">
+            <Heart className="support-icon" />
+            <div>
+              <h2 className="support-title">{site.donate.title}</h2>
+              <p>{site.donate.text}</p>
+            </div>
+            <a href={site.donate.url} target="_blank" rel="noopener" className="btn btn-pink"><Heart className="i" /> Donate on Sociabuzz</a>
+          </div>
+        </section>
 
         <section id="gallery" className="card gallery-wrap">
           <div className="gallery-head">

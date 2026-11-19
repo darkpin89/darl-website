@@ -14,12 +14,17 @@ export const site = {
     appleMusic: "#",
   },
   release: {
-    title: "As Above So Below",
-    type: "New Single",
-    cover: "/images/band-wide.jpg", // ganti dengan cover art single
-    // Dari Spotify: Share → Embed track → salin URL dalam src="..."
-    spotifyEmbed: "",
-    watchUrl: "#", // link video YouTube
+    spotifyUrl: "https://open.spotify.com/album/2qhoVv4GjhAEg01RGaklaP",
+    spotifyEmbed: "https://open.spotify.com/embed/album/2qhoVv4GjhAEg01RGaklaP?utm_source=generator&theme=0",
+  },
+  video: {
+    youtubeId: "yPAGhwupXUI",
+    url: "https://youtu.be/yPAGhwupXUI",
+  },
+  donate: {
+    url: "https://sociabuzz.com/officialdarl",
+    title: "Support DARL",
+    text: "We're an independent band. Every bit of support helps us record new music, make videos and keep playing shows.",
   },
   about:
     "DARL is an indie band exploring the space between reality and daydreams. Inspired by the sounds of the 60s, shoegaze, and late night drives.",
