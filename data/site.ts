@@ -5,13 +5,13 @@ export const site = {
   genres: ["Indie", "Psychedelic", "Dream Pop"],
   tagline: ["We make songs", "for the late nights", "and daydreams."],
   quote: "Melodies that stay with you long after the lights go out.",
-  email: "hello@darl.example.com", // email band untuk booking
+  email: "", // email band untuk booking (kosong = tak ditunjuk)
   socials: {
-    spotify: "#",
-    youtube: "#",
-    instagram: "#",
-    tiktok: "#",
-    appleMusic: "#",
+    spotify: "https://open.spotify.com/artist/3cQ5kRxMkaMGi2vjz5hQnB",
+    youtube: "https://youtube.com/@darl-official",
+    instagram: "https://www.instagram.com/darlorigin",
+    tiktok: "https://www.tiktok.com/@officialdarl",
+    appleMusic: "", // kosong = tak ditunjuk
   },
   release: {
     spotifyUrl: "https://open.spotify.com/album/2qhoVv4GjhAEg01RGaklaP",

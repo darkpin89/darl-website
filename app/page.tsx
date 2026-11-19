@@ -17,10 +17,10 @@ function Socials({ className = "" }: { className?: string }) {
   const s = site.socials;
   return (
     <div className={`socials ${className}`}>
-      <a href={s.spotify} aria-label="Spotify"><Spotify /></a>
-      <a href={s.youtube} aria-label="YouTube"><YouTube /></a>
-      <a href={s.instagram} aria-label="Instagram"><Instagram /></a>
-      <a href={s.tiktok} aria-label="TikTok"><TikTok /></a>
+      <a href={s.spotify} target="_blank" rel="noopener" aria-label="Spotify"><Spotify /></a>
+      <a href={s.youtube} target="_blank" rel="noopener" aria-label="YouTube"><YouTube /></a>
+      <a href={s.instagram} target="_blank" rel="noopener" aria-label="Instagram"><Instagram /></a>
+      <a href={s.tiktok} target="_blank" rel="noopener" aria-label="TikTok"><TikTok /></a>
     </div>
   );
 }
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="platforms">
               <a href={site.release.spotifyUrl} target="_blank" rel="noopener"><Spotify className="i" /> Spotify</a>
               <a href={site.video.url} target="_blank" rel="noopener"><YouTube className="i" /> YouTube</a>
-              <a href={site.socials.appleMusic}><Apple className="i" /> Apple Music</a>
+              {site.socials.appleMusic ? <a href={site.socials.appleMusic} target="_blank" rel="noopener"><Apple className="i" /> Apple Music</a> : null}
             </div>
           </section>
 
@@ -97,7 +97,7 @@ export default function Home() {
         <section id="gallery" className="card gallery-wrap">
           <div className="gallery-head">
             <h2 className="label">Gallery</h2>
-            <a href={site.socials.instagram} className="link">View gallery <Arrow className="i" /></a>
+            <a href={site.socials.instagram} target="_blank" rel="noopener" className="link">View gallery <Arrow className="i" /></a>
           </div>
           <div className="gallery">
             {gallery.map((g) => (
@@ -111,10 +111,19 @@ export default function Home() {
 
       <footer id="contact" className="footer">
         <div className="footer-logo">DARL</div>
-        <p className="footer-copy">Join our mailing list<br />for updates and new music.</p>
-        <MailingList />
+        {site.mailingListAction || site.email ? (
+          <>
+            <p className="footer-copy">Join our mailing list<br />for updates and new music.</p>
+            <MailingList />
+          </>
+        ) : (
+          <div className="footer-follow">
+            <p className="footer-copy">Follow DARL for<br />updates and new music.</p>
+            <Socials />
+          </div>
+        )}
         <div className="footer-meta">
-          <a href={`mailto:${site.email}`}>Booking: {site.email}</a>
+          {site.email ? <a href={`mailto:${site.email}`}>Booking: {site.email}</a> : null}
           <span>© {new Date().getFullYear()} DARL. All rights reserved.</span>
         </div>
       </footer>
