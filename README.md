@@ -1,5 +1,9 @@
 # DARL — laman web band
 
+Alamat: https://darl.langkahsuka.art
+
+Folder `hub/` = halaman utama langkahsuka.art (projek Vercel berasingan, Root Directory `hub`). Lihat `hub/README.md`.
+
 Next.js one-page site. Semua kandungan boleh ubah dalam 2 fail:
 
 - `data/site.ts` — link Spotify/YouTube/Instagram/TikTok, album Spotify, video YouTube, link donation Sociabuzz, email booking, teks About, link mailing list
