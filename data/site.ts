@@ -1,7 +1,7 @@
 // ⚠️ Tukar semua link "#" di bawah kepada link sebenar band.
 export const site = {
   name: "DARL",
-  url: "https://langkahsuka.art",
+  url: "https://darl.langkahsuka.art",
   genres: ["Indie", "Psychedelic", "Dream Pop"],
   tagline: ["We make songs", "for the late nights", "and daydreams."],
   quote: "Melodies that stay with you long after the lights go out.",

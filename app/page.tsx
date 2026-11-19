@@ -124,6 +124,7 @@ export default function Home() {
         )}
         <div className="footer-meta">
           {site.email ? <a href={`mailto:${site.email}`}>Booking: {site.email}</a> : null}
+          <a href="https://langkahsuka.art">Part of Langkahsuka</a>
           <span>© {new Date().getFullYear()} DARL. All rights reserved.</span>
         </div>
       </footer>
